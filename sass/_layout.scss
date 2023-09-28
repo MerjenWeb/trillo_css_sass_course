@@ -5,7 +5,7 @@
 	background-color: var(--color-grey-light-1);
 	box-shadow: var(--shadow-dark);
 
-	// Testing purposes
+	// TEST
 	min-height: 50rem;
 }
 
@@ -30,9 +30,16 @@
 
 	// the property to define width of the flex item in the flex container is flex-basis, and we always use it in the shorthand property, flex: 0 (flex-grow ), 1 (flex-shrink), auto (flex-basis) -- default value;
 	flex: 0 0 18%; // element doesnt grow even if there is some space, doesnt shrink if there is not enough space, but always has 18% width. Since it is a percentage value - it automatically shrinks, and that behaviour is not wanted here.
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .hotel-view {
 	background-color: #fff;
 	flex: 1; // occupies the entire remaining space
+
+	// TEST
+	height: 80rem;
 }
