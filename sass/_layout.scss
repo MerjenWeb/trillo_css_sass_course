@@ -1,0 +1,38 @@
+.container {
+	// Using max-width so that the container could decrease if there is not enough space to display 120rem, and if it was min-width - does not decrease
+	max-width: 120rem;
+	margin: 8rem auto;
+	background-color: var(--color-grey-light-1);
+	box-shadow: var(--shadow-dark);
+
+	// Testing purposes
+	min-height: 50rem;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 7rem;
+	background-color: #fff;
+	font-size: 1.4rem;
+
+	border-bottom: 2px solid var(--color-grey-light-2);
+}
+
+// Flex container
+.content {
+	display: flex;
+}
+
+.sidebar {
+	background-color: var(--color-grey-dark-1);
+
+	// the property to define width of the flex item in the flex container is flex-basis, and we always use it in the shorthand property, flex: 0 (flex-grow ), 1 (flex-shrink), auto (flex-basis) -- default value;
+	flex: 0 0 18%; // element doesnt grow even if there is some space, doesnt shrink if there is not enough space, but always has 18% width. Since it is a percentage value - it automatically shrinks, and that behaviour is not wanted here.
+}
+
+.hotel-view {
+	background-color: #fff;
+	flex: 1; // occupies the entire remaining space
+}

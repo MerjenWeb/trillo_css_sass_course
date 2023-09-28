@@ -1,23 +1,148 @@
 /*
-COLORS
+CSS custom properties which are known as CSS variables. That means that we can actually right now use variables in CSS and don't have to rely on SASS variables. 
+What's wrong with SASS variables? Why CSS custom properties or CSS variables? 
+1) With CSS variables you don't need a pre-processor (CSS can now natively handle CSS variables); 
+2) They can be manipulated in JavaScript and we can also edit them in our dev tools.
+3) Also it's easier to use CSS variables in the calc function and also CSS variables cascade and they are inherited.
 
-Primary: #eb2f64
-Primary light: #FF3366
-Primary dark: #BA265D
-
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
-
-Grey dark 1: #333
-Grey dark 2: #777
-Grey dark 3: #999
-
+We collect all the variables in root pseudo class, this is the same as the HTML selector, but with higher specificity
 */
+:root {
+  --color-primary: #eb2f64;
+  --color-primary-light: #ff3366;
+  --color-primary-dark: #ba265d;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
+
 * {
   margin: 0;
   padding: 0; }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
 body {
-  background-color: #eb2f64; }
+  background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-grey-dark-2); }
+
+.container {
+  max-width: 120rem;
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark);
+  min-height: 50rem; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+  background-color: #fff;
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--color-grey-light-2); }
+
+.content {
+  display: flex; }
+
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+  flex: 0 0 18%; }
+
+.hotel-view {
+  background-color: #fff;
+  flex: 1; }
+
+.logo {
+  height: 3.25rem;
+  margin-left: 2rem; }
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 40%; }
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all 0.3s;
+    margin-right: -3.25rem; }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3); }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4); }
+  .search__input:focus + .search__button {
+    background-color: var(--color-grey-light-3); }
+  .search__button {
+    border: none;
+    background-color: var(--color-grey-light-2); }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      transform: translateY(2px); }
+  .search__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3); }
+
+.user-nav {
+  align-self: stretch;
+  display: flex;
+  align-items: center; }
+  .user-nav > * {
+    height: 100%;
+    padding: 0 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center; }
+  .user-nav > *:hover {
+    background-color: var(--color-grey-light-2); }
+  .user-nav__icon-box {
+    position: relative; }
+  .user-nav__icon {
+    height: 2.25rem;
+    width: 2.25rem;
+    fill: var(--color-grey-dark-2); }
+  .user-nav__notification {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .user-nav__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem; }

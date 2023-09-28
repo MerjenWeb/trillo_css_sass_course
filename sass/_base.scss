@@ -1,0 +1,57 @@
+/*
+CSS custom properties which are known as CSS variables. That means that we can actually right now use variables in CSS and don't have to rely on SASS variables. 
+What's wrong with SASS variables? Why CSS custom properties or CSS variables? 
+1) With CSS variables you don't need a pre-processor (CSS can now natively handle CSS variables); 
+2) They can be manipulated in JavaScript and we can also edit them in our dev tools.
+3) Also it's easier to use CSS variables in the calc function and also CSS variables cascade and they are inherited.
+
+We collect all the variables in root pseudo class, this is the same as the HTML selector, but with higher specificity
+*/
+
+:root {
+	--color-primary: #eb2f64;
+	--color-primary-light: #ff3366;
+	--color-primary-dark: #ba265d;
+
+	--color-grey-light-1: #faf9f9;
+	--color-grey-light-2: #f4f2f2;
+	--color-grey-light-3: #f0eeee;
+	--color-grey-light-4: #ccc;
+
+	--color-grey-dark-1: #333;
+	--color-grey-dark-2: #777;
+	--color-grey-dark-3: #999;
+
+	--shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; // 1rem = 10px
+}
+
+body {
+	background-image: linear-gradient(
+		to right bottom,
+		var(--color-primary-light),
+		var(--color-primary-dark)
+	);
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	line-height: 1.6;
+	color: var(--color-grey-dark-2);
+}
